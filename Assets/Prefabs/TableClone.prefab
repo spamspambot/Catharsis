@@ -159,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514047220279500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.65, z: -6.59}
+  m_LocalPosition: {x: 3, y: 1.65, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4409566343273434}
@@ -629,6 +629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   realTable: {fileID: 0}
+  tableSound: {fileID: 1166491523345380, guid: 345f782a6680b0946aa91da348aca4e8, type: 2}
   startPos: {x: 0, y: 0, z: 0}
   realTableStartPos: {x: 0, y: 0, z: 0}
   flipped: 0
