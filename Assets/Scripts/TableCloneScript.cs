@@ -8,6 +8,7 @@ public class TableCloneScript : MonoBehaviour
     public GameObject tableSound;
     public Vector3 startPos;
     public Vector3 realTableStartPos;
+    public float randomRange;
     Rigidbody rb;
     TableScript tableScript;
     public bool flipped;
@@ -24,7 +25,9 @@ public class TableCloneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tableScript.triggerEnter && !flipped) { rb.velocity = tableScript.throwVelocity * flipMultiplier; flipped = true; }
+        if (tableScript.triggerEnter && !flipped) {
+            float magnitude = tableScript.throwVelocity.magnitude;
+            rb.velocity = (tableScript.throwVelocity.normalized + new Vector3(Random.Range(-randomRange,randomRange), Random.Range(0, randomRange), Random.Range(0, randomRange))) * magnitude * flipMultiplier; flipped = true; }
     }
 
     void OnCollisionEnter(Collision other)
