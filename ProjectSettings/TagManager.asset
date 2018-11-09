@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Table
   - Ground
+  - Arm
   layers:
   - Default
   - TransparentFX

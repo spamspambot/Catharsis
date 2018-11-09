@@ -4,4 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/House of Cards v1.unity
+    guid: 13d031f5c2dd4a547b90eef30ed9c178
+  - enabled: 1
+    path: Assets/Tableflip_Michael.unity
+    guid: 7a85b3d594e7bb74d8a8c8872faed55e
+  m_configObjects: {}
