@@ -11,9 +11,11 @@ public class TableCloneScript : MonoBehaviour
     public float randomRange;
     Rigidbody rb;
     TableScript tableScript;
+    public float velocityThreshold;
     public bool flipped;
     public float flipMultiplier;
     // Use this for initialization
+  //  GameObject tempSound;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,16 +27,23 @@ public class TableCloneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (tableScript.triggerEnter && !flipped) {
+        if (tableScript.triggerEnter && !flipped)
+        {
             float magnitude = tableScript.throwVelocity.magnitude;
-            rb.velocity = (tableScript.throwVelocity.normalized + new Vector3(Random.Range(-randomRange,randomRange), Random.Range(0, randomRange), Random.Range(0, randomRange))) * magnitude * flipMultiplier; flipped = true; }
+            rb.velocity = (tableScript.throwVelocity.normalized + new Vector3(Random.Range(-randomRange, randomRange), Random.Range(0, randomRange), Random.Range(0, randomRange))) * magnitude * flipMultiplier; flipped = true;
+        }
     }
 
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Table") || other.gameObject.CompareTag("Ground"))
         {
-            Instantiate(tableSound, transform.position, Quaternion.identity);
+            if (other.relativeVelocity.magnitude > velocityThreshold)
+            {
+               GameObject tempSound = Instantiate(tableSound, transform.position, Quaternion.identity);
+                tempSound.GetComponent<AudioSource>().volume = 0.1F + (0.9F * Mathf.Clamp(other.relativeVelocity.magnitude, 0, 100) / 100);
+            }
+       
         }
     }
 }

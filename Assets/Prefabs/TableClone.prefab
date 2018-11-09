@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23161982201825006}
   m_Layer: 0
   m_Name: Legs
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 23122364350995336}
   m_Layer: 0
   m_Name: Legs
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,8 +74,9 @@ GameObject:
   - component: {fileID: 65644230593039370}
   - component: {fileID: 23221496410861080}
   - component: {fileID: 54185774363048808}
+  - component: {fileID: 114624972182194236}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +95,7 @@ GameObject:
   - component: {fileID: 23127714261403010}
   m_Layer: 0
   m_Name: Legs
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +113,7 @@ GameObject:
   - component: {fileID: 23256827372778480}
   m_Layer: 0
   m_Name: Legs
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +131,7 @@ GameObject:
   - component: {fileID: 23124807351086982}
   m_Layer: 0
   m_Name: Desk plate
-  m_TagString: Untagged
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -617,6 +618,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114624972182194236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758825779669274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e0adaa6b9a41241bcae06a76992eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx: {fileID: 1804970741742696, guid: a83dcd9927fafe143989f40c096e3251, type: 2}
 --- !u!114 &114996798828163286
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -633,5 +646,6 @@ MonoBehaviour:
   startPos: {x: 0, y: 0, z: 0}
   realTableStartPos: {x: 0, y: 0, z: 0}
   randomRange: 0.5
+  velocityThreshold: 0.5
   flipped: 0
-  flipMultiplier: 5
+  flipMultiplier: 2

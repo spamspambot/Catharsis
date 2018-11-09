@@ -6,6 +6,7 @@ public class TableScript : MonoBehaviour {
     Rigidbody rb;
     public GameObject tableSound;
     public bool triggerEnter;
+    public float velocityThreshold;
     public Vector3 throwVelocity;
 	// Use this for initialization
 	void Start () {
@@ -27,7 +28,12 @@ public class TableScript : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Table") || other.gameObject.CompareTag("Ground"))
         {
-            Instantiate(tableSound, transform.position, Quaternion.identity);
+            if (other.relativeVelocity.magnitude > velocityThreshold)
+            {
+                GameObject tempSound = Instantiate(tableSound, transform.position, Quaternion.identity);
+                tempSound.GetComponent<AudioSource>().volume = 0.1F + (0.9F * Mathf.Clamp(other.relativeVelocity.magnitude, 0, 100) / 100);
+            }
+
         }
     }
 
