@@ -8,6 +8,7 @@ public class Card : MonoBehaviour
     private Vector3 screenPoint;
     private Vector3 offset;
     private Rigidbody rb;
+    public float moveSpeed = 2f;
 
     void Start()
         {
@@ -32,7 +33,15 @@ public class Card : MonoBehaviour
         Vector3 cursorScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
         Vector3 cursorPos = Camera.main.ScreenToWorldPoint(cursorScreenPoint) + offset;
 
-        transform.position = cursorPos;
-        
+        //transform.position = cursorPos;
+
+        rb.useGravity = false;
+        //rb.velocity = Vector3.Lerp(rb.velocity, cursorPos - transform.position, drag * Time.deltaTime);
+        rb.velocity = (cursorPos - transform.position) * moveSpeed;
+        }
+
+    public void OnMouseUp()
+        {
+        rb.useGravity = true;
         }
     }
