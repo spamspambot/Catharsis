@@ -16,6 +16,8 @@ public class Card : MonoBehaviour
     public GameObject glassCard;
     public GameObject normalCard;
 
+    public bool isGlass = false;
+
     void Start()
         {
         rBody = gameObject.GetComponent<Rigidbody>();
@@ -42,6 +44,11 @@ public class Card : MonoBehaviour
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         rBody.useGravity = false;
+
+        if (isGlass)
+            {
+            Glass();
+            }
         }
 
     public void OnMouseDrag()
@@ -59,6 +66,15 @@ public class Card : MonoBehaviour
     public void OnMouseUp()
         {
         rBody.useGravity = true;
+        }
+
+    public void Glass()
+        {
+        glassCard.SetActive(true);
+        glassCard.transform.SetParent(null);
+
+        normalCard.SetActive(false);
+        gameObject.SetActive(false);
         }
 
     public void BlackHole()
