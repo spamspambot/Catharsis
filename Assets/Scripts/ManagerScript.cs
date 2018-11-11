@@ -12,6 +12,7 @@ public class ManagerScript : MonoBehaviour
     public GameObject scene4;
     public GameObject scene5;
     public GameObject scene6;
+    public List<GameObject> scenes;
     // Use this for initialization
     void Start()
     {
