@@ -14,11 +14,11 @@ public class TableScript : MonoBehaviour {
 	}
 
     void OnTriggerEnter(Collider other) {
-        throwVelocity = rb.velocity;
+    //   if(other.CompareTag) throwVelocity = rb.velocity;
     }
 
     void OnTriggerExit(Collider other) {
-        if (!triggerEnter)
+        if (!triggerEnter && other.CompareTag("Arm"))
         {
             throwVelocity = rb.velocity;
             triggerEnter = true;
