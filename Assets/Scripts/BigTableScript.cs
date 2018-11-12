@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BigTableScript : MonoBehaviour {
     public GameObject tableSound;
+    public GameObject tableRain;
     public bool playedSound;
     // Use this for initialization
     void Start () {
@@ -14,7 +15,9 @@ public class BigTableScript : MonoBehaviour {
         if (other.CompareTag("Ground") && !playedSound) {
             playedSound = true;
             Instantiate(tableSound, transform.position, Quaternion.identity);
-            ManagerScript.sceneSwitch = true;
+            tableRain.SetActive(true);
+        //    ManagerScript.sceneSwitch = true;
         }
     }
+
 }

@@ -14,7 +14,8 @@ public class TableRain : MonoBehaviour
         {
             for (int j = 0; j < tableNumber; j++)
             {
-                Instantiate(table, transform.position + new Vector3(tableSpacing * i, 0, tableSpacing * j), Quaternion.identity);
+                
+                Instantiate(table, transform.position + new Vector3(tableSpacing * i, 0, tableSpacing * j), Quaternion.Euler(Random.Range(0,360), Random.Range(0, 360), Random.Range(0, 360)));
             }
         }
     }
