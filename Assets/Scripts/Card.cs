@@ -16,6 +16,9 @@ public class Card : MonoBehaviour
     public GameObject glassCard;
     public GameObject normalCard;
 
+    public float power = 2f;
+    public float radius = 4f;
+
     public bool isGlass = false;
 
     void Start()
@@ -33,7 +36,7 @@ public class Card : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
         {
-        if (other = bhCollider)
+        if (other == bhCollider)
             {
             BlackHole();
             }
@@ -75,6 +78,25 @@ public class Card : MonoBehaviour
 
         normalCard.SetActive(false);
         gameObject.SetActive(false);
+
+        if (transform.parent.parent.name.ToString() == "Scene 4")
+            {
+            Vector3 explosionPos = transform.position;
+            Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+
+            foreach (Collider hit in colliders)
+                {
+                Rigidbody rb = hit.GetComponent<Rigidbody>();
+
+                if (rb != null)
+                    {
+                    if (rb.gameObject.name.ToString().Contains("Shard"))
+                        {
+                        rb.AddExplosionForce(power, explosionPos, radius, 0f, ForceMode.Impulse);
+                        }
+                    }
+                }
+            }
         }
 
     public void BlackHole()

@@ -3798,6 +3798,9 @@ MonoBehaviour:
   bhCollider: {fileID: 0}
   glassCard: {fileID: 1967102861347674}
   normalCard: {fileID: 1250745857368518}
+  power: 2
+  radius: 4
+  isGlass: 0
 --- !u!114 &114859513758592184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3814,3 +3817,6 @@ MonoBehaviour:
   bhCollider: {fileID: 0}
   glassCard: {fileID: 0}
   normalCard: {fileID: 0}
+  power: 2
+  radius: 4
+  isGlass: 0

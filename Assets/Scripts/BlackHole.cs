@@ -9,23 +9,45 @@ public class BlackHole : MonoBehaviour {
     public float radius = 20f;
     public float power = -10f;
 
-	// Use this for initialization
+    private bool reduceClutter = false;
+    private bool holeActive = false;
+
+    public int colliderCount;
+	
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
 	    if (Input.GetMouseButtonDown(0))
             {
             collider.enabled = true;
+            if (holeActive)
+                {
+                holeActive = !holeActive;
+                }
+            else
+                {
+                reduceClutter = !reduceClutter;
+                }
+            }
+
+        if (reduceClutter)
+            {
+            ReduceClutter();
+            }
+
+        if (holeActive)
+            {
+            ActivateBlackHole();
             }
 	}
 
-    public void OnMouseDown()
+    public void ReduceClutter()
         {
         Vector3 explosionPos = transform.position;
-        Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+        Collider[] colliders = Physics.OverlapSphere(explosionPos, 100f);
 
         foreach (Collider hit in colliders)
             {
@@ -33,9 +55,16 @@ public class BlackHole : MonoBehaviour {
 
             if (rb != null)
                 {
-                ReduceClutter(hit);
+                DestroyShard(hit);
                 }
             }
+
+        if (holeActive == false)
+            {
+            reduceClutter = !reduceClutter;
+            holeActive = !holeActive;
+            }
+        
         }
 
     public void OnMouseDrag()
@@ -47,7 +76,7 @@ public class BlackHole : MonoBehaviour {
         {
         
 
-        Debug.Log("clicked");
+       // Debug.Log("clicked");
 
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
@@ -62,11 +91,18 @@ public class BlackHole : MonoBehaviour {
                 rb.AddExplosionForce(power, explosionPos, radius, 0f, ForceMode.Impulse);
                 }
             }
+
+        colliderCount = colliders.Length;
+
+        if (colliderCount > 350)
+            {
+            ReduceClutter();
+            }
         }
 
-    public void ReduceClutter(Collider hit)
+    public void DestroyShard(Collider hit)
         {
-        bool destroy = (Random.Range(0, 2) == 0);
+        bool destroy = (Random.Range(0, 6) == 0);
         if (destroy)
             {
             hit.gameObject.SetActive(false);
