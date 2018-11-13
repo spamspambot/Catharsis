@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaySoundScript : MonoBehaviour {
+public class PlaySoundScript : MonoBehaviour
+{
+    public GameObject soundEffect;
+    public bool allTags;
+    public List<string> affectedTags;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (allTags) Instantiate(soundEffect, transform.position, Quaternion.identity);
+        else
+            for (int i = 0; i < affectedTags.Count; i++)
+            {
+                if (collision.gameObject.CompareTag(affectedTags[i]))
+                    Instantiate(soundEffect, transform.position, Quaternion.identity);
+            }
+
+    }
 }

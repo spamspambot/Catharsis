@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1342411572646050}
+  m_RootGameObject: {fileID: 1799693107592020}
   m_IsPrefabAsset: 1
---- !u!1 &1342411572646050
+--- !u!1 &1799693107592020
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4261246779049534}
-  - component: {fileID: 82552607883993084}
-  - component: {fileID: 114440702294907834}
+  - component: {fileID: 4524140758637474}
+  - component: {fileID: 82917054640008286}
+  - component: {fileID: 114032887483150010}
   m_Layer: 0
-  m_Name: TableHitSound
+  m_Name: PartyHornSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4261246779049534
+--- !u!4 &4524140758637474
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1342411572646050}
+  m_GameObject: {fileID: 1799693107592020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.65, z: -8.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,16 +41,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82552607883993084
+--- !u!82 &82917054640008286
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1342411572646050}
+  m_GameObject: {fileID: 1799693107592020}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6a2c7ef82814479468352f2762714ff1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2b00d5495cd04574086fd60c7ac07d88, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -96,7 +96,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.23
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -136,16 +136,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114440702294907834
+--- !u!114 &114032887483150010
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1342411572646050}
+  m_GameObject: {fileID: 1799693107592020}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ecdabf5c06316c4c98f08305c966cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pitchRange: 0.2
+  pitchRange: 0
   lifetime: 2
