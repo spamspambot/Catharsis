@@ -31,7 +31,7 @@ public class ManagerScript : MonoBehaviour
             switchingScene = true;
             StartCoroutine("SceneSwitchDelay");
         }
-        if (Input.GetKeyDown("r")) ReloadScene(1);
+        if (Input.GetKeyDown("r") || Input.GetMouseButtonDown(1)) ReloadScene(1);
     }
 
     IEnumerator SceneSwitchDelay() {

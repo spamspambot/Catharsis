@@ -100,7 +100,7 @@ public class BlackHole : MonoBehaviour {
 
         colliderCount = colliders.Length;
 
-        if (colliderCount > 350)
+        if (colliderCount > 250)
             {
             ReduceClutter();
             }
