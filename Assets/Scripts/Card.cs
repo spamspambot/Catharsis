@@ -12,6 +12,7 @@ public class Card : MonoBehaviour
 
     public BoxCollider collider;
     public SphereCollider bhCollider;
+    public Collider expCollider;
 
     public GameObject glassCard;
     public GameObject normalCard;
@@ -21,10 +22,17 @@ public class Card : MonoBehaviour
 
     public bool isGlass = false;
 
+    public bool isExpand = false;
+
+    private AudioSource audio;
+    public AudioClip glassSound;
+    public AudioClip cardSound;
+
     void Start()
         {
         rBody = gameObject.GetComponent<Rigidbody>();
         collider = gameObject.GetComponent<BoxCollider>();
+        audio = gameObject.GetComponent<AudioSource>();
         }
 
 
@@ -34,11 +42,27 @@ public class Card : MonoBehaviour
 
         }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.name.ToString() == "Plane" || collision.transform.name.ToString().Contains("Table"))
+        {
+            audio.clip = cardSound;
+            audio.Play();
+        }
+        
+    }
+
     private void OnTriggerEnter(Collider other)
         {
         if (other == bhCollider)
             {
             BlackHole();
+            }
+
+        else if (other == expCollider)
+            {
+            isExpand = true;
+            Glass(2f);            
             }
         }
 
@@ -50,7 +74,7 @@ public class Card : MonoBehaviour
 
         if (isGlass)
             {
-            Glass();
+            Glass(power);
             }
         }
 
@@ -71,15 +95,12 @@ public class Card : MonoBehaviour
         rBody.useGravity = true;
         }
 
-    public void Glass()
+    public void Glass(float force)
         {
         glassCard.SetActive(true);
         glassCard.transform.SetParent(null);
 
-        normalCard.SetActive(false);
-        gameObject.SetActive(false);
-
-        if (transform.parent.parent.name.ToString() == "Scene 4")
+        if (transform.parent.parent.name.ToString() == "Scene 4" || transform.parent.parent.name.ToString() == "Scene 5")
             {
             Vector3 explosionPos = transform.position;
             Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
@@ -92,12 +113,25 @@ public class Card : MonoBehaviour
                     {
                     if (rb.gameObject.name.ToString().Contains("Shard"))
                         {
-                        rb.AddExplosionForce(power, explosionPos, radius, 0f, ForceMode.Impulse);
+                        Debug.Log("hit");
+                        if (isExpand)
+                        {
+                            rb.useGravity = false;
+                            
+                        }
+                        rb.AddExplosionForce(force, explosionPos, radius, 0f, ForceMode.Impulse);
+                        audio.clip = glassSound;
+                        audio.Play();
                         }
                     }
                 }
             }
-        }
+        
+
+        normalCard.SetActive(false);
+        //gameObject.SetActive(false);
+        collider.enabled = false;
+    }
 
     public void BlackHole()
         {

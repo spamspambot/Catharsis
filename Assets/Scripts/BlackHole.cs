@@ -25,10 +25,12 @@ public class BlackHole : MonoBehaviour {
             collider.enabled = true;
             if (holeActive)
                 {
+                gameObject.GetComponent<AudioSource>().Stop();
                 holeActive = !holeActive;
                 }
             else
                 {
+                gameObject.GetComponent<AudioSource>().Play();
                 reduceClutter = !reduceClutter;
                 }
             }
@@ -41,7 +43,9 @@ public class BlackHole : MonoBehaviour {
         if (holeActive)
             {
             ActivateBlackHole();
-            }
+            
+        }
+        
 	}
 
     public void ReduceClutter()
@@ -80,6 +84,8 @@ public class BlackHole : MonoBehaviour {
 
         Vector3 explosionPos = transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+
+        
 
         foreach (Collider hit in colliders)
             {
