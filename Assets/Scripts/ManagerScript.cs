@@ -13,6 +13,7 @@ public class ManagerScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Time.timeScale = 1;
         sceneSwitch = false;
         if (escalationLevel < scenes.Count)
         {
@@ -41,6 +42,8 @@ public class ManagerScript : MonoBehaviour
     public void ReloadScene(int i)
     {
         SceneManager.LoadScene(1);
-        escalationLevel++;
+        if (escalationLevel < scenes.Count)
+            escalationLevel++;
+        else escalationLevel = 0;
     }
 }

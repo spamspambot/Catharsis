@@ -8,6 +8,7 @@ public class BombScript : MonoBehaviour
     public float radius = 5.0F;
     public float power = 10.0F;
     public GameObject explosionSound;
+    public GameObject explosionParticle;
     public float bombDelay;
     void Start()
     {
@@ -27,7 +28,7 @@ public class BombScript : MonoBehaviour
             if (rb != null)
             {
                 rb.AddExplosionForce(power, explosionPos, radius, 3.0F);
-                
+                explosionParticle.SetActive(true);
                 print(rb);
             }
         }

@@ -12,6 +12,7 @@ public class PauseMenuScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Time.timeScale = 1;
 	}
 	
 	// Update is called once per frame
