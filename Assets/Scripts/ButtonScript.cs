@@ -5,10 +5,11 @@ using UnityEngine;
 public class ButtonScript : MonoBehaviour {
     public GameObject buttonSound;
     public GameObject buttonObject;
-    bool active;
-	// Use this for initialization
-	void Start () {
-		
+    public Animator anim;
+    private bool active;
+
+    void Start () {
+       // anim.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -25,6 +26,7 @@ public class ButtonScript : MonoBehaviour {
 
     void ButtonPressed() {
         Instantiate(buttonSound, transform.position, Quaternion.identity);
+        anim.SetTrigger("ButtonPress");
         buttonObject.SetActive(true);
         active = true;
     }

@@ -1385,7 +1385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &344836967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2189,6 +2189,7 @@ GameObject:
   - component: {fileID: 670315069}
   - component: {fileID: 670315068}
   - component: {fileID: 670315072}
+  - component: {fileID: 670315073}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -2277,6 +2278,25 @@ MonoBehaviour:
   buttonSound: {fileID: 1488738547709148, guid: 2725257476c58bf4296b4c96554fd0d0,
     type: 2}
   buttonObject: {fileID: 454486268}
+  anim: {fileID: 670315073}
+--- !u!95 &670315073
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 670315067}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb032417eb7f5294fb59a390c3e23381, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &686692950
 GameObject:
   m_ObjectHideFlags: 0
@@ -3985,6 +4005,7 @@ GameObject:
   - component: {fileID: 1218507718}
   - component: {fileID: 1218507717}
   - component: {fileID: 1218507716}
+  - component: {fileID: 1218507720}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -4061,6 +4082,24 @@ Transform:
   m_Father: {fileID: 1874681653}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1218507720
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218507715}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb032417eb7f5294fb59a390c3e23381, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1230190779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4250083899539826, guid: e4513425e5ced6c49932431a87559bf1,
@@ -4574,7 +4613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1531422401
 Transform:
   m_ObjectHideFlags: 0
@@ -6352,7 +6391,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2104292014}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.98, y: -0.83000004, z: -0.55999947}
+  m_LocalPosition: {x: -0.98, y: -0.83000004, z: -0.5599995}
   m_LocalScale: {x: 0.27703, y: 0.58382, z: 0.33021998}
   m_Children:
   - {fileID: 686692952}
@@ -6534,6 +6573,7 @@ GameObject:
   - component: {fileID: 2143638670}
   - component: {fileID: 2143638669}
   - component: {fileID: 2143638668}
+  - component: {fileID: 2143638672}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -6568,6 +6608,7 @@ MonoBehaviour:
   buttonSound: {fileID: 1488738547709148, guid: 2725257476c58bf4296b4c96554fd0d0,
     type: 2}
   buttonObject: {fileID: 686692950}
+  anim: {fileID: 2143638672}
 --- !u!135 &2143638669
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6622,3 +6663,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2143638666}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &2143638672
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2143638666}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb032417eb7f5294fb59a390c3e23381, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
