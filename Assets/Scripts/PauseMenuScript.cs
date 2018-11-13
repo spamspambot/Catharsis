@@ -48,13 +48,22 @@ public class PauseMenuScript : MonoBehaviour {
         pauseScreen.SetActive(false);
     }
 
-    public void Restart(int index)
+    public void Restart()
     {
-        SceneManager.LoadScene(index);
+        SceneManager.LoadScene(sceneIndex);
     }
 
-    public void NextScene(int index)
+    public void NextScene()
     {
-        SceneManager.LoadScene(index);
+        if (sceneIndex == 0)
+        {
+            SceneManager.LoadScene(1);
+        }
+
+        else if (sceneIndex == 1)
+        {
+            SceneManager.LoadScene(0);
+        }
+        
     }
 }

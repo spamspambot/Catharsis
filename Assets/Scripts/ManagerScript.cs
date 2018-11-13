@@ -41,7 +41,7 @@ public class ManagerScript : MonoBehaviour
 
     public void ReloadScene(int i)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         if (escalationLevel < scenes.Count)
             escalationLevel++;
         else escalationLevel = 0;
